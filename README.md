@@ -2,6 +2,8 @@
 
 You can setup the website by following the setup instructions.
 
+Heroku hosting address: https://capstone-1998.herokuapp.com/
+
 ## Setup
 
 Clone the repository in your computer using this [link](). Before starting the project you need to download the necessary plugins using.
