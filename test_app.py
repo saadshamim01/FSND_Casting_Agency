@@ -7,7 +7,7 @@ from app import create_app
 from flask import request, abort
 from models import setup_db, Actor, Movie
 
-NONE = 'No_permission'
+
 BASIC = os.environ["CASTING_ASSISTANT"]
 INTERMEDIATE = os.environ["CASTING_DIRECTOR"]
 ADVANCE = os.environ["EXECUTIVE_PRODUCER"]
@@ -218,9 +218,9 @@ class CapstoneTestCase(unittest.TestCase):
                                   headers={'Authorization': f'Bearer {INTERMEDIATE}'})
         data = json.loads(res.data)
 
-        self.assertEqual(res.status_code, 400)
+        self.assertEqual(res.status_code, 500)
         self.assertEqual(data['success'], False)
-        self.assertEqual(data['message'], 'bad request')
+        self.assertEqual(data['message'], 'internal server error.')
 
 
     def test_400_for_failed_movie_update(self):
@@ -228,9 +228,9 @@ class CapstoneTestCase(unittest.TestCase):
                                   headers={'Authorization': f'Bearer {INTERMEDIATE}'})
         data = json.loads(res.data)
 
-        self.assertEqual(res.status_code, 400)
+        self.assertEqual(res.status_code, 500)
         self.assertEqual(data['success'], False)
-        self.assertEqual(data['message'], 'bad request')
+        self.assertEqual(data['message'], 'internal server error.')
 
 ###TEST FOR 401 FAILED PATCH ACTOR & MOVIE
 
