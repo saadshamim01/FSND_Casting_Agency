@@ -6,7 +6,8 @@ import psycopg2
 from datetime import datetime
 
 
-database_path = 'postgres://saadshamim@localhost:5432/capstone'
+database_path = os.environ["DATABASE_URL"]
+
 
 #conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
