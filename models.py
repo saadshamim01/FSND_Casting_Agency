@@ -21,13 +21,6 @@ def setup_db(app, database_path=database_path):
     db.create_all()
     #migrate = Migrate(app,db)
 
-class Relation(db.Model):
-    __tablename__ = 'Relation'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
-    age = db.Column(db.Integer)
-    gender = db.Column(db.String)
-
 class Actor(db.Model):
     __tablename__ = 'Actor'
     id = db.Column(db.Integer, primary_key=True)
