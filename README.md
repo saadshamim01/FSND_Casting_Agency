@@ -302,6 +302,8 @@ When the APIs failed to do what they design to do, we get errors. Errors are ret
 
 To run the api test, create a database using
 ```
-createdb capstone_test
-python3 test_app.py
+source setup.sh
+dropdb  capstone_test
+createdb  capstone_test
+python test_app.py
 ```

@@ -18,8 +18,8 @@ def create_app(test_config=None):
     setup_db(app)
     db = SQLAlchemy(app)
     migrate = Migrate(app, db)
-    #CORS(app)
-
+#    CORS(app)
+#
 #    @app.after_request
 #    def after_request(response):
 #        response.headers.add(
