@@ -190,7 +190,7 @@ def create_app(test_config=None):
 
         actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
 
-        if actor is None:
+        if new_name is None:
             abort(404)
 
         try:

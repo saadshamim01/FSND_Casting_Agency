@@ -20,9 +20,8 @@ class CapstoneTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        #self.database_name = "capstone_test"
-        self.database_path = 'postgres://saadshamim@localhost:5432/capstone_test'
-        setup_db(self.app, self.database_path)
+        self.test_database_path = os.environ["DATABASE_URL_TEST"]
+        setup_db(self.app, self.test_database_path)
 
         self.new_actor = {
         'name': 'Saad Shamim',
@@ -219,26 +218,24 @@ class CapstoneTestCase(unittest.TestCase):
 
 ###TEST FOR FAILED PATCH ACTOR & MOVIE
 
+    def test_400_for_failed_actor_update(self):
+        res = self.client().patch('/actors/1',
+                                  headers={'Authorization': f'Bearer {INTERMEDIATE}'})
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 400)
+        self.assertEqual(data['success'], False)
+        self.assertEqual(data['message'], 'bad request')
 
 
-#    def test_400_for_failed_actor_update(self):
-#        res = self.client().patch('/actors/1',
-#                                  headers={'Authorization': f'Bearer {INTERMEDIATE}'})
-#        data = json.loads(res.data)
-#
-#        self.assertEqual(res.status_code, 400)
-#        self.assertEqual(data['success'], False)
-#        self.assertEqual(data['message'], 'bad request')
-#
-#
-#    def test_400_for_failed_movie_update(self):
-#        res = self.client().patch('/movies/1',
-#                                  headers={'Authorization': f'Bearer {INTERMEDIATE}'})
-#        data = json.loads(res.data)
-#
-#        self.assertEqual(res.status_code, 400)
-#        self.assertEqual(data['success'], False)
-#        self.assertEqual(data['message'], 'bad request')
+    def test_400_for_failed_movie_update(self):
+        res = self.client().patch('/movies/1',
+                                  headers={'Authorization': f'Bearer {INTERMEDIATE}'})
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 400)
+        self.assertEqual(data['success'], False)
+        self.assertEqual(data['message'], 'bad request')
 
 ###TEST FOR 401 FAILED PATCH ACTOR & MOVIE
 
