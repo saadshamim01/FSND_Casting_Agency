@@ -2,7 +2,9 @@
 
 You can setup the website by following the setup instructions.
 
-Heroku hosting address: https://capstone-1998.herokuapp.com/
+Heroku hosting address: https://capstone-2000.herokuapp.com/
+
+DATABASE_URL: postgres://jospleyokpaxxa:ce22035f257bd3fb1f7f15af605d054cada0713b515a0bc583db37a4eb2c61c0@ec2-3-212-75-25.compute-1.amazonaws.com:5432/d52161ph9gm4j
 
 ## Setup
 
