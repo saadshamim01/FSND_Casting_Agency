@@ -8,7 +8,7 @@ from flask_migrate import Migrate
 from flask import abort
 import random
 
-from models import setup_db, Movie, Actor
+from models import setup_db, Actor, Movie
 from auth import requires_auth, AuthError
 
 from datetime import datetime
